@@ -3,18 +3,14 @@ import psycopg2
 import pandas as pd
 
 def get_connection():
-    try:
-        return psycopg2.connect(
-            host=st.secrets["DB_HOST"],
-            port=st.secrets["DB_PORT"],
-            database=st.secrets["DB_NAME"],
-            user=st.secrets["DB_USER"],
-            password=st.secrets["DB_PASSWORD"],
-            sslmode="require",
-        )
-    except Exception as e:
-        st.error(str(e))
-        raise
+    return psycopg2.connect(
+        host=st.secrets["DB_HOST"],
+        port=int(st.secrets["DB_PORT"]),
+        database=st.secrets["DB_NAME"],
+        user=st.secrets["DB_USER"],
+        password=st.secrets["DB_PASSWORD"],
+        sslmode="require"
+    )
 
 def get_companies():
     conn = get_connection()
