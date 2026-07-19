@@ -1,13 +1,12 @@
 import psycopg2
 
 conn = psycopg2.connect(
-    host="aws-1-ap-northeast-2.pooler.supabase.com",
+    host="db.hkucvqwahygzyihtkduq.supabase.co",
     port=5432,
     database="postgres",
-    user="postgres.hkucvqwahygzyihtkduq",
+    user="postgres",
     password="KLRahul@1234",
     sslmode="require"
 )
 
 print("Connected")
-conn.close()
